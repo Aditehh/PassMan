@@ -36,8 +36,14 @@ const Manager = () => {
                                 />
                             </div>
                         </div>
-                        <button class="cursor-pointer px-5 py-2.5 bg-gradient-to-r from-[#b58e73] to-[#ba9273] text-white font-semibold rounded-lg shadow-md hover:opacity-90 transition duration-200">
-                            Add Password
+
+                        <button class=" flex justify-center items-center cursor-pointer px-5 py-2.5 bg-gradient-to-r from-[#b58e73] to-[#ba9273] text-white font-semibold rounded-lg shadow-md hover:opacity-90 transition duration-200">
+                            <lord-icon
+                                src="https://cdn.lordicon.com/efxgwrkc.json"
+                                trigger="hover"
+                                
+                            >
+                            </lord-icon> Add Password
                         </button>
                     </div>
                 </div>
