@@ -1,6 +1,18 @@
 import React from 'react';
+import { useRef } from 'react';
 
 const Manager = () => {
+    const ref = useRef();
+    const showPassword=  () => {
+        // alert("passowrd")
+        if(ref.current.innerText == "Show"){
+        ref.current.innerText = "Hide"
+        }
+       else{
+        ref.current.innerText = "Show"
+        }
+
+    }
     return (
         <>
             <div className="absolute top-0 z-[-2] h-full w-full bg-[rgba(226,221,221,0.93)] bg-[radial-gradient(rgba(226,221,221,0.93))] bg-[size:20px_20px]"></div>
@@ -17,7 +29,7 @@ const Manager = () => {
                         <div className='flex flex-col space-y-4'>
                             <div className='relative'>
                                 <input
-                                    className="w-full bg-white/10 backdrop-blur-sm text-black border border-slate-600/50 rounded-lg px-4 py-3 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent transition-all duration-200 hover:bg-white/15"
+                                    className="w-full font-mono bg-white/10 backdrop-blur-sm text-black border border-slate-600/50 rounded-lg px-4 py-3 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent transition-all duration-200 hover:bg-white/15"
                                     type="text"
                                     placeholder='example@gmail.com'
                                 />
@@ -25,15 +37,18 @@ const Manager = () => {
 
                             <div className='flex space-x-3'>
                                 <input
-                                    className="flex-1 bg-white/10 backdrop-blur-sm text-black border border-slate-600/50 rounded-lg px-4 py-3 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent transition-all duration-200 hover:bg-white/15"
+                                    className="flex-1 font-mono bg-white/10 backdrop-blur-sm text-black border border-slate-600/50 rounded-lg px-4 py-3 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent transition-all duration-200 hover:bg-white/15"
                                     type="text"
                                     placeholder='Username'
                                 />
-                                <input
-                                    className="flex-1 bg-white/10 backdrop-blur-sm text-black border border-slate-600/50 rounded-lg px-4 py-3 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent transition-all duration-200 hover:bg-white/15"
-                                    type="password"
-                                    placeholder='Password'
-                                />
+                                <div className='relative'>
+                                    <input
+                                        className="flex-1 bg-white/10 backdrop-blur-sm text-black border border-slate-600/50 rounded-lg px-4 py-3 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent transition-all duration-200 hover:bg-white/15"
+                                        type="password"
+                                        placeholder='Password'
+                                    />
+                                    <span ref={ref} className='absolute right-3 top-3 cursor-pointer text-gray-400 font-mono ' onClick={showPassword}> Show</span>
+                                </div>
                             </div>
                         </div>
 
@@ -41,7 +56,7 @@ const Manager = () => {
                             <lord-icon
                                 src="https://cdn.lordicon.com/efxgwrkc.json"
                                 trigger="hover"
-                                
+
                             >
                             </lord-icon> Add Password
                         </button>
