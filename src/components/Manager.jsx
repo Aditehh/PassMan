@@ -17,12 +17,13 @@ const Manager = () => {
 
     }, [])
 
-    const users = [
-        { email: form.email },
-        { username: form.username },
-        { password: form.password }
-    ]
+    // const users = [
+    //     { email: form.email },
+    //     { username: form.username },
+    //     { password: form.password }
+    // ]
 
+   
 
 
 
@@ -30,6 +31,7 @@ const Manager = () => {
         if (ref.current.innerText == "Show") {
 
             ref.current.innerText = "Hide"
+            
         }
         else {
             ref.current.innerText = "Show"
@@ -43,7 +45,7 @@ const Manager = () => {
     }
 
     const handleChange = (e) => {
-        setform({ ...form, [e.target.name]: e.target.value })
+        setform({ ...form, [e.target.name]: [e.target.value] })
     }
 
 
@@ -82,7 +84,6 @@ const Manager = () => {
                                         placeholder='Password'
                                     />
                                     <button ref={ref} className='absolute right-3 top-3 cursor-pointer text-gray-400 font-mono ' onClick={showPassword}>
-
                                         Show</button>
                                 </div>
                             </div>
