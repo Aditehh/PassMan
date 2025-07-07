@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useRef, useState } from 'react';
 
 const Manager = () => {
     const ref = useRef();
     const [form, setform] = useState({ password: "", email: "", username: "" })
+    const [passwordArray, setpasswordArray] = useState([])
+
+
+    useEffect(() => {
+        console.log(form)
+        let passwords = localStorage.getItem("passwords")
+        let passwordArray;
+        if (passwords) {
+            setpasswordArray(JSON.parse(passwords))
+        }
+
+    }, [])
 
 
 
     const showPassword = () => {
         if (ref.current.innerText == "Show") {
+
             ref.current.innerText = "Hide"
         }
         else {
@@ -17,13 +30,16 @@ const Manager = () => {
     }
 
     const savePassword = (e) => {
-        console.log(form)
+        setpasswordArray([...passwordArray, form])
+        localStorage.setItem("password", JSON.stringify([...passwordArray]))
+        console.log([...passwordArray])
+
     }
 
     const handleChange = (e) => {
-      setform({...form, [e.target.name] : e.target.value})
+        setform({ ...form, [e.target.name]: e.target.value })
     }
-    
+
 
     return (
         <>
@@ -59,7 +75,9 @@ const Manager = () => {
                                         type="password"
                                         placeholder='Password'
                                     />
-                                    <span ref={ref} className='absolute right-3 top-3 cursor-pointer text-gray-400 font-mono ' onClick={showPassword}> Show</span>
+                                    <button ref={ref} className='absolute right-3 top-3 cursor-pointer text-gray-400 font-mono ' onClick={showPassword}>
+
+                                        Show</button>
                                 </div>
                             </div>
                         </div>
