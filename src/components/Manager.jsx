@@ -9,13 +9,20 @@ const Manager = () => {
 
     useEffect(() => {
         console.log(form)
-        let passwords = localStorage.getItem("passwords")
+        let passwords = localStorage.getItem("password")
         let passwordArray;
         if (passwords) {
             setpasswordArray(JSON.parse(passwords))
         }
 
     }, [])
+
+    const users = [
+        {email: form.email},
+        {username: form.username},
+        {password: form.password}
+    ]
+    
 
 
 
@@ -33,7 +40,6 @@ const Manager = () => {
         setpasswordArray([...passwordArray, form])
         localStorage.setItem("password", JSON.stringify([...passwordArray]))
         console.log([...passwordArray])
-
     }
 
     const handleChange = (e) => {
@@ -93,7 +99,37 @@ const Manager = () => {
                     </div>
                 </div>
             </div>
-            <div>
+            <div className='flex justify-center'>
+                <table className="w-[77vw] bg-white border-3 rounded-xl border-gray-300 font-mono">
+                    <thead>
+                        <tr className="bg-gray-100">
+                            <th className="px-6 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider border-b">
+                                Email/URL
+                            </th>
+                            <th className="px-6 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider border-b">
+                                Username
+                            </th>
+                            <th className="px-6 py-3 text-left text-xl font-medium text-gray-500 uppercase tracking-wider border-b">
+                                Password
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {users.map((user, index) => (
+                            <tr  className="hover:bg-gray-50">
+                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 border-b">
+                                    {user.email}
+                                </td>
+                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 border-b">
+                                    {user.username}
+                                </td>
+                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 border-b">
+                                    {user.password}
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
 
             </div>
         </>
