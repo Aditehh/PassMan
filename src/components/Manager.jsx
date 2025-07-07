@@ -49,7 +49,7 @@ const Manager = () => {
 
     return (
         <>
-            <div className="absolute top-0 z-[-2] h-full w-full bg-[rgba(226,221,221,0.93)] bg-[radial-gradient(rgba(226,221,221,0.93))] bg-[size:20px_20px]"></div>
+            <div className="fixed top-0 left-0 z-[-2] h-screen w-screen bg-[rgba(226,221,221,0.93)] bg-[radial-gradient(rgba(226,221,221,0.93))] bg-[size:20px_20px]"></div>
             <div className='min-h-full flex flex-col items-center  px-4 '>
                 <div className=' p-8 w-[80vw]  text-white'>
                     <div className='text-center mb-8'>
@@ -59,7 +59,7 @@ const Manager = () => {
                         <p className='text-gray-900 font-light'>Won't let you forget</p>
                     </div>
 
-                    <div className="space-y-6">
+                    <div className="space-y-6 flex-col flex">
                         <div className='flex flex-col space-y-4'>
                             <div className='relative'>
                                 <input value={form.email} onChange={handleChange} name='email'
@@ -88,7 +88,7 @@ const Manager = () => {
                             </div>
                         </div>
 
-                        <button onClick={savePassword} className=" flex justify-center items-center cursor-pointer px-5 py-2.5 bg-gradient-to-r from-[#b58e73] to-[#ba9273] text-white font-semibold rounded-lg shadow-md hover:opacity-90 transition duration-200">
+                        <button onClick={savePassword} className="flex justify-center items-center cursor-pointer px-5 py-2.5 bg-gradient-to-r from-[#b58e73] to-[#ba9273] text-white font-semibold rounded-lg shadow-md hover:opacity-90 transition duration-200">
                             <lord-icon
                                 src="https://cdn.lordicon.com/efxgwrkc.json"
                                 trigger="hover"
@@ -98,62 +98,47 @@ const Manager = () => {
                     </div>
                 </div>
 
-
-                <div className="min-h-full bg-[rgba(226,221,221,0.93)] flex  justify-center w-[80vw] ">
-                    <div className="w-screen">
-                        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border-2 border-black/50">
-                            <table className="w-full">
-                                <thead>
-                                    <tr className="bg-orange-100">
-                                        <th className="px-8 py-5 text-left text-sm font-semibold text-gray-800 tracking-wide uppercase">
-                                            Email/URL
-                                        </th>
-                                        <th className="px-8 py-5 text-left text-sm font-semibold text-gray-800 tracking-wide uppercase">
-                                            Username
-                                        </th>
-                                        <th className="px-8 py-5 text-left text-sm font-semibold text-gray-800 tracking-wide uppercase">
-                                            Passwords
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody className="divide-y divide-gray-100/80">
-                                    <tr className="hover:bg-gray-50/50 transition-colors duration-200">
-                                        <td className="px-8 py-3 text-gray-900 font-medium">
-                                            The Sliding Mr. Bones (Next Stop, Pottersville)
-                                        </td>
-                                        <td className="px-8 py-3 text-gray-700">
-                                            Malcolm Lockyer
-                                        </td>
-                                        <td className="px-8 py-3 text-gray-600 font-mono">
-                                            1961
-                                        </td>
-                                    </tr>
-                                    <tr className="hover:bg-gray-50/50 transition-colors duration-200">
-                                        <td className="px-8 py-6 text-gray-900 font-medium">
-                                            Witchy Woman
-                                        </td>
-                                        <td className="px-8 py-6 text-gray-700">
-                                            The Eagles
-                                        </td>
-                                        <td className="px-8 py-6 text-gray-600 font-mono">
-                                            1972
-                                        </td>
-                                    </tr>
-                                    <tr className="hover:bg-gray-50/50 transition-colors duration-200">
-                                        <td className="px-8 py-6 text-gray-900 font-medium">
-                                            Shining Star
-                                        </td>
-                                        <td className="px-8 py-6 text-gray-700">
-                                            Earth, Wind, and Fire
-                                        </td>
-                                        <td className="px-8 py-6 text-gray-600 font-mono">
-                                            1975
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                <div>
+                    <span className='font-extrabold text-3xl px-2 '>Your passwords</span>
+                    {passwordArray.length === 0 && <div>no passwords to show </div>}
+                    {passwordArray.length != 0 &&
+                        <div className="min-h-full bg-[rgba(226,221,221,0.93)] flex  justify-center w-[80vw] ">
+                            <div className="w-screen">
+                                <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border-2 border-black/50">
+                                    <table className="w-full">
+                                        <thead>
+                                            <tr className="bg-orange-100">
+                                                <th className="px-8 py-5 text-left text-sm font-semibold text-gray-800 tracking-wide uppercase">
+                                                    Email/URL
+                                                </th>
+                                                <th className="px-8 py-5 text-left text-sm font-semibold text-gray-800 tracking-wide uppercase">
+                                                    Username
+                                                </th>
+                                                <th className="px-8 py-5 text-left text-sm font-semibold text-gray-800 tracking-wide uppercase">
+                                                    Passwords
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-gray-100/80">
+                                            {passwordArray.map((item, index) => {
+                                                return <tr key={index}
+                                                    className="hover:bg-gray-50/50 transition-colors duration-200">
+                                                    <td className="px-8 py-3 text-gray-900 font-medium">
+                                                        <a href="{item.email}" target='_blank'>{item.email}</a>
+                                                    </td>
+                                                    <td className="px-8 py-3 text-gray-700">
+                                                        {item.username}
+                                                    </td>
+                                                    <td className="px-8 py-3 text-gray-600 font-mono">
+                                                        {item.password}
+                                                    </td>
+                                                </tr>
+                                            })}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>}
                 </div>
             </div>
 
