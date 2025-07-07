@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 
 const Manager = () => {
     const ref = useRef();
+    const passwordRef = useRef();
     const [form, setform] = useState({ password: "", email: "", username: "" })
     const [passwordArray, setpasswordArray] = useState([])
 
@@ -28,6 +29,7 @@ const Manager = () => {
 
 
     const showPassword = () => {
+        passwordRef.current.type="text"
         if (ref.current.innerText == "Show") {
 
             ref.current.innerText = "Hide"
@@ -78,7 +80,7 @@ const Manager = () => {
                                     placeholder='Username'
                                 />
                                 <div className='relative'>
-                                    <input value={form.password} onChange={handleChange} name='password'
+                                    <input ref={passwordRef} value={form.password} onChange={handleChange} name='password'
                                         className="flex-1 bg-white/10 backdrop-blur-sm text-black border border-slate-600/50 rounded-lg px-4 py-3 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent transition-all duration-200 hover:bg-white/15"
                                         type="password"
                                         placeholder='Password'
