@@ -2,6 +2,7 @@ import React from 'react'
 
 const Navbar = () => {
     return (
+        <>
         <nav className='bg-neutral-800 flex items-center justify-betweenflex justify-around  py-2 h-16 '>
             <div className="logo font-extrabold text-yellow-50">PassMan</div>
             <ul >
@@ -13,7 +14,9 @@ const Navbar = () => {
                 </li>
             </ul>
         </nav>
+        </>
     )
+    
 }
 
 export default Navbar

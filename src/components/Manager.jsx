@@ -18,11 +18,11 @@ const Manager = () => {
     }, [])
 
     const users = [
-        {email: form.email},
-        {username: form.username},
-        {password: form.password}
+        { email: form.email },
+        { username: form.username },
+        { password: form.password }
     ]
-    
+
 
 
 
@@ -92,14 +92,73 @@ const Manager = () => {
                             <lord-icon
                                 src="https://cdn.lordicon.com/efxgwrkc.json"
                                 trigger="hover"
-
                             >
                             </lord-icon> Add Password
                         </button>
                     </div>
                 </div>
+
+
+                <div className="min-h-full bg-[rgba(226,221,221,0.93)] flex  justify-center w-[80vw] ">
+                    <div className="w-screen">
+                        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border-2 border-black/50">
+                            <table className="w-full">
+                                <thead>
+                                    <tr className="bg-orange-100">
+                                        <th className="px-8 py-5 text-left text-sm font-semibold text-gray-800 tracking-wide uppercase">
+                                            Email/URL
+                                        </th>
+                                        <th className="px-8 py-5 text-left text-sm font-semibold text-gray-800 tracking-wide uppercase">
+                                            Username
+                                        </th>
+                                        <th className="px-8 py-5 text-left text-sm font-semibold text-gray-800 tracking-wide uppercase">
+                                            Passwords
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-gray-100/80">
+                                    <tr className="hover:bg-gray-50/50 transition-colors duration-200">
+                                        <td className="px-8 py-3 text-gray-900 font-medium">
+                                            The Sliding Mr. Bones (Next Stop, Pottersville)
+                                        </td>
+                                        <td className="px-8 py-3 text-gray-700">
+                                            Malcolm Lockyer
+                                        </td>
+                                        <td className="px-8 py-3 text-gray-600 font-mono">
+                                            1961
+                                        </td>
+                                    </tr>
+                                    <tr className="hover:bg-gray-50/50 transition-colors duration-200">
+                                        <td className="px-8 py-6 text-gray-900 font-medium">
+                                            Witchy Woman
+                                        </td>
+                                        <td className="px-8 py-6 text-gray-700">
+                                            The Eagles
+                                        </td>
+                                        <td className="px-8 py-6 text-gray-600 font-mono">
+                                            1972
+                                        </td>
+                                    </tr>
+                                    <tr className="hover:bg-gray-50/50 transition-colors duration-200">
+                                        <td className="px-8 py-6 text-gray-900 font-medium">
+                                            Shining Star
+                                        </td>
+                                        <td className="px-8 py-6 text-gray-700">
+                                            Earth, Wind, and Fire
+                                        </td>
+                                        <td className="px-8 py-6 text-gray-600 font-mono">
+                                            1975
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </>
     )
 }
+
 export default Manager
