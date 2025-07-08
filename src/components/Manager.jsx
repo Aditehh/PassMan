@@ -18,26 +18,16 @@ const Manager = () => {
 
     }, [])
 
-    // const users = [
-    //     { email: form.email },
-    //     { username: form.username },
-    //     { password: form.password }
-    // ]
-
-   
-
-
-
     const showPassword = () => {
-        passwordRef.current.type="text"
+        passwordRef.current.type = "text"
         if (ref.current.innerText == "Show") {
- passwordRef.current.type="text"
+            passwordRef.current.type = "text"
             ref.current.innerText = "Hide"
-            
+
         }
         else {
             ref.current.innerText = "Show"
-             passwordRef.current.type="password"
+            passwordRef.current.type = "password"
         }
     }
 
