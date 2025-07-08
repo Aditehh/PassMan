@@ -225,7 +225,7 @@ const Manager = () => {
                                                     </td>
 
 
-                                                    <td className="px-8 py-3 flex gap-5 text-gray-600 font-mono">
+                                                    <td className="px-8 py-3 flex gap-3 text-gray-600 font-mono">
                                                         <span>
 
                                                             <svg
@@ -241,6 +241,14 @@ const Manager = () => {
 
                                                         <span>
 
+                                                            <svg
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                className="w-5 h-8 cursor-pointer text-gray-500 hover:text-black-700 transition duration-150 py-0.5"
+                                                                viewBox="0 0 24 24"
+                                                                fill="currentColor"
+                                                            >
+                                                                <path d="M16.862 3.487a1.66 1.66 0 0 1 2.348 2.348l-1.033 1.033-2.348-2.348 1.033-1.033Zm-2.048 2.048L5 15.349V19h3.65l9.814-9.814-2.65-2.65Zm-9.814 14.88A1.44 1.44 0 0 1 3.56 19v-3.651c0-.382.152-.749.423-1.02L14.37 3.94a2.66 2.66 0 0 1 3.76 0l1.93 1.93a2.66 2.66 0 0 1 0 3.76L9.672 20.44a1.44 1.44 0 0 1-1.02.423H3.65Z" />
+                                                            </svg>
 
                                                         </span>
                                                     </td>
