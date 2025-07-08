@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import { useRef, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 
+import { v4 as uuidv4 } from 'uuid';
+
+
 const Manager = () => {
     const ref = useRef();
     const passwordRef = useRef();
@@ -39,10 +42,18 @@ const Manager = () => {
 
 
     const savePassword = (e) => {
-        setpasswordArray([...passwordArray, form])
+        setpasswordArray([...passwordArray, {...form, id : uuidv4() }])
         localStorage.setItem("password", JSON.stringify([...passwordArray]))
         console.log([...passwordArray])
     }
+
+     const deletePassword = (e) => {
+        setpasswordArray([...passwordArray, {...form, id : uuidv4() }])
+        localStorage.setItem("password", JSON.stringify([...passwordArray]))
+        console.log([...passwordArray])
+    }
+
+
 
     const notify = () => {
         toast('Copied to Clipboard', {
