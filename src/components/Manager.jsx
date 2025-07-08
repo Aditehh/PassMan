@@ -45,11 +45,33 @@ const Manager = () => {
         setpasswordArray([...passwordArray, { ...form, id: uuidv4() }])
         localStorage.setItem("password", JSON.stringify([...passwordArray, { ...form, id: uuidv4() }]))
         console.log([...passwordArray])
-    }
+         toast('Saved successfully', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark"
+         });
+        
+        }
 
     const deletePassword = (id) => {
         setpasswordArray(passwordArray.filter(item => item.id !== id))
         localStorage.setItem("password", JSON.stringify(passwordArray.filter(item => item.id !== id)))
+            toast('Deleted successfully', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark"
+            
+        });
     }
 
     const editPassword = (id) => {
@@ -62,15 +84,15 @@ const Manager = () => {
 
     const notify = () => {
         toast('Copied to Clipboard', {
-            // position: "top-right",
-            // autoClose: 5000,
-            // hideProgressBar: false,
-            // closeOnClick: false,
-            // pauseOnHover: true,
-            // draggable: true,
-            // progress: undefined,
-            // theme: "dark",
-            // transition: "Bounce",
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark"
+            
         });
         console.log("hehe")
     }
