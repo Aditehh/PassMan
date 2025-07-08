@@ -42,15 +42,20 @@ const Manager = () => {
 
 
     const savePassword = (e) => {
-        setpasswordArray([...passwordArray, {...form, id : uuidv4() }])
-        localStorage.setItem("password", JSON.stringify([...passwordArray, {...form, id : uuidv4() }]))
+        setpasswordArray([...passwordArray, { ...form, id: uuidv4() }])
+        localStorage.setItem("password", JSON.stringify([...passwordArray, { ...form, id: uuidv4() }]))
         console.log([...passwordArray])
     }
 
-     const deletePassword = (id) => {
-        setpasswordArray([...passwordArray, {...form, id : uuidv4() }])
-        localStorage.setItem("password", JSON.stringify([...passwordArray]))
-        console.log([...passwordArray])
+    const deletePassword = (id) => {
+        setpasswordArray(passwordArray.filter(item => item.id !== id))
+        localStorage.setItem("password", JSON.stringify(passwordArray.filter(item => item.id !== id)))
+    }
+
+    const editPassword = (id) => {
+        setform(passwordArray.filter(i => i.id === id)[0])
+        setpasswordArray(passwordArray.filter(item => item.id !== id))
+
     }
 
 
@@ -238,7 +243,7 @@ const Manager = () => {
 
                                                     <td className="px-8 py-3 flex gap-3 text-gray-600 font-mono">
 
-                                                        <span onClick={deletePassword}>
+                                                        <span onClick={() => deletePassword(item.id)}>
 
                                                             <svg
                                                                 xmlns="http://www.w3.org/2000/svg"
@@ -251,7 +256,7 @@ const Manager = () => {
 
                                                         </span>
 
-                                                        <span onClick={editPassword}>
+                                                        <span onClick={() => editPassword(item.id)}>
 
                                                             <svg
                                                                 xmlns="http://www.w3.org/2000/svg"
