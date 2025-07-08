@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useRef, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Manager = () => {
     const ref = useRef();
@@ -31,10 +32,31 @@ const Manager = () => {
         }
     }
 
+    const copyText = (text) => {
+        // alert("the this is copied to your clipboard")
+        navigator.clipboard.writeText(text)
+    }
+
+
     const savePassword = (e) => {
         setpasswordArray([...passwordArray, form])
         localStorage.setItem("password", JSON.stringify([...passwordArray]))
         console.log([...passwordArray])
+    }
+
+    const notify = () => {
+        toast('Copied to Clipboard', {
+            // position: "top-right",
+            // autoClose: 5000,
+            // hideProgressBar: false,
+            // closeOnClick: false,
+            // pauseOnHover: true,
+            // draggable: true,
+            // progress: undefined,
+            // theme: "dark",
+            // transition: "Bounce",
+        });
+        console.log("hehe")
     }
 
     const handleChange = (e) => {
@@ -44,6 +66,23 @@ const Manager = () => {
 
     return (
         <>
+            {/* <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick={false}
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+                transition="Bounce"
+                 /> */}
+<ToastContainer
+theme='dark'/>
+
+
             <div className="fixed top-0 left-0 z-[-2] h-screen w-screen bg-[rgba(226,221,221,0.93)] bg-[radial-gradient(rgba(226,221,221,0.93))] bg-[size:20px_20px]"></div>
             <div className='min-h-full flex flex-col items-center  px-4 '>
                 <div className=' p-8 w-[80vw]  text-white'>
@@ -117,14 +156,67 @@ const Manager = () => {
                                             {passwordArray.map((item, index) => {
                                                 return <tr key={index}
                                                     className="hover:bg-gray-50/50 transition-colors duration-200">
-                                                    <td className="px-8 py-3 text-gray-900 font-medium">
-                                                        <a href="{item.email}" target='_blank'>{item.email}</a>
+                                                    <td className="px-8 py-3 text-gray-900 font-medium flex items-center">
+                                                        <a href="{item.email}" target='_blank'>{item.email}
+                                                        </a>
+                                                        <div onClick={() => { copyText(item.email); notify();  }}>
+                                                            <svg
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                fill="none"
+                                                                viewBox="0 0 24 24"
+                                                                strokeWidth={1.8}
+                                                                stroke="currentColor"
+                                                                className="w-5 h-5 py-0.5 px-0.5 cursor-pointer"
+                                                            >
+                                                                <path
+                                                                    strokeLinecap="round"
+                                                                    strokeLinejoin="round"
+                                                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                                                                />
+                                                            </svg>
+                                                        </div>
                                                     </td>
-                                                    <td className="px-8 py-3 text-gray-700">
-                                                        {item.username}
+                                                    <td className="px-8 py-3 text-gray-700 ">
+                                                        <div className='flex items-center'>
+                                                            <span> {item.username}</span>
+                                                            <div onClick={() => { copyText(item.username) ;notify();  }}>
+                                                                <svg
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    fill="none"
+                                                                    viewBox="0 0 24 24"
+                                                                    strokeWidth={1.8}
+                                                                    stroke="currentColor"
+                                                                    className="w-5 h-5 py-0.5 px-0.5 cursor-pointer"
+                                                                >
+                                                                    <path
+                                                                        strokeLinecap="round"
+                                                                        strokeLinejoin="round"
+                                                                        d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                                                                    />
+                                                                </svg>
+                                                            </div>
+                                                        </div>
                                                     </td>
                                                     <td className="px-8 py-3 text-gray-600 font-mono">
-                                                        {item.password}
+                                                        <div className='flex items-center'>
+                                                            <span> {item.password}</span>
+                                                            <div onClick={() => { copyText(item.password); notify(); }}>
+                                                                <svg
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    fill="none"
+                                                                    viewBox="0 0 24 24"
+                                                                    strokeWidth={1.8}
+                                                                    stroke="currentColor"
+                                                                    className="w-5 h-5 py-0.5 px-0.5 cursor-pointer"
+                                                                >
+                                                                    <path
+                                                                        strokeLinecap="round"
+                                                                        strokeLinejoin="round"
+                                                                        d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                                                                    />
+                                                                </svg>
+                                                            </div>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             })}

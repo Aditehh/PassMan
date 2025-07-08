@@ -3,6 +3,8 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Manager from './components/Manager'
 import Footer from './components/Footer'
+import { ToastContainer, toast } from 'react-toastify';
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -11,9 +13,9 @@ function App() {
     <>
       <Navbar />
       <div className='min-h-[80vh]'>
-      <Manager />
+        <Manager />
       </div>
-      <Footer/>
+      <Footer />
     </>
   )
 }
