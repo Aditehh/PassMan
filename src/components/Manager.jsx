@@ -79,8 +79,8 @@ const Manager = () => {
                 theme="dark"
                 transition="Bounce"
                  /> */}
-<ToastContainer
-theme='dark'/>
+            <ToastContainer
+                theme='dark' />
 
 
             <div className="fixed top-0 left-0 z-[-2] h-screen w-screen bg-[rgba(226,221,221,0.93)] bg-[radial-gradient(rgba(226,221,221,0.93))] bg-[size:20px_20px]"></div>
@@ -150,6 +150,9 @@ theme='dark'/>
                                                 <th className="px-8 py-5 text-left text-sm font-semibold text-gray-800 tracking-wide uppercase">
                                                     Passwords
                                                 </th>
+                                                <th className="px-8 py-5 text-left text-sm font-semibold text-gray-800 tracking-wide uppercase">
+                                                    Actions
+                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody className="divide-y divide-gray-100/80">
@@ -159,7 +162,7 @@ theme='dark'/>
                                                     <td className="px-8 py-3 text-gray-900 font-medium flex items-center">
                                                         <a href="{item.email}" target='_blank'>{item.email}
                                                         </a>
-                                                        <div onClick={() => { copyText(item.email); notify();  }}>
+                                                        <div onClick={() => { copyText(item.email); notify(); }}>
                                                             <svg
                                                                 xmlns="http://www.w3.org/2000/svg"
                                                                 fill="none"
@@ -179,7 +182,7 @@ theme='dark'/>
                                                     <td className="px-8 py-3 text-gray-700 ">
                                                         <div className='flex items-center'>
                                                             <span> {item.username}</span>
-                                                            <div onClick={() => { copyText(item.username) ;notify();  }}>
+                                                            <div onClick={() => { copyText(item.username); notify(); }}>
                                                                 <svg
                                                                     xmlns="http://www.w3.org/2000/svg"
                                                                     fill="none"
