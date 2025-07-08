@@ -31,12 +31,13 @@ const Manager = () => {
     const showPassword = () => {
         passwordRef.current.type="text"
         if (ref.current.innerText == "Show") {
-
+ passwordRef.current.type="text"
             ref.current.innerText = "Hide"
             
         }
         else {
             ref.current.innerText = "Show"
+             passwordRef.current.type="password"
         }
     }
 
