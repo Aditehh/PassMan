@@ -42,19 +42,35 @@ const Manager = () => {
 
 
     const savePassword = (e) => {
-        setpasswordArray([...passwordArray, { ...form, id: uuidv4() }])
-        localStorage.setItem("password", JSON.stringify([...passwordArray, { ...form, id: uuidv4() }]))
-        console.log([...passwordArray])
-        toast('Saved successfully', {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark"
-        });
+        if (form.email.length > 3 && form.username.length > 3 && form.password.length > 3) {
+            setpasswordArray([...passwordArray, { ...form, id: uuidv4() }])
+            localStorage.setItem("password", JSON.stringify([...passwordArray, { ...form, id: uuidv4() }]))
+            console.log([...passwordArray])
+            toast('Saved successfully', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark"
+            });
+        }
+        else {
+            toast('Error: Invalid Inputs', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark"
+
+            });
+
+        }
 
     }
 
