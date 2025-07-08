@@ -43,11 +43,11 @@ const Manager = () => {
 
     const savePassword = (e) => {
         setpasswordArray([...passwordArray, {...form, id : uuidv4() }])
-        localStorage.setItem("password", JSON.stringify([...passwordArray]))
+        localStorage.setItem("password", JSON.stringify([...passwordArray, {...form, id : uuidv4() }]))
         console.log([...passwordArray])
     }
 
-     const deletePassword = (e) => {
+     const deletePassword = (id) => {
         setpasswordArray([...passwordArray, {...form, id : uuidv4() }])
         localStorage.setItem("password", JSON.stringify([...passwordArray]))
         console.log([...passwordArray])
@@ -237,7 +237,8 @@ const Manager = () => {
 
 
                                                     <td className="px-8 py-3 flex gap-3 text-gray-600 font-mono">
-                                                        <span>
+
+                                                        <span onClick={deletePassword}>
 
                                                             <svg
                                                                 xmlns="http://www.w3.org/2000/svg"
@@ -250,7 +251,7 @@ const Manager = () => {
 
                                                         </span>
 
-                                                        <span>
+                                                        <span onClick={editPassword}>
 
                                                             <svg
                                                                 xmlns="http://www.w3.org/2000/svg"
