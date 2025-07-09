@@ -19,19 +19,24 @@
 ## Getting Started
 
 ### 1. Clone the repo
-```bash
+```
 git clone https://github.com/Aditehh/PassMan.git
 cd PassMan
+```
 
 
-2. Install dependencies;
+### 2. Install dependencies
+```
 npm install
+```
 
-3. Run the app
+### 3. Run the app
+```
 npm run dev
 Make sure you have Node.js and npm installed on your machine.
+```
 
---Tech Stack
+### Tech Stack
 React
 Tailwind CSS
 Vite
