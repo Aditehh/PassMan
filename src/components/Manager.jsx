@@ -42,10 +42,16 @@ const Manager = () => {
 
 
     const savePassword = (e) => {
-        if (form.email.length > 3 && form.username.length > 3 && form.password.length > 3) {
-            setpasswordArray([...passwordArray, { ...form, id: uuidv4() }])
-            localStorage.setItem("password", JSON.stringify([...passwordArray, { ...form, id: uuidv4() }]))
-            console.log([...passwordArray])
+        if (
+            form.email.length > 3 &&
+            form.username.length > 3 &&
+            form.password.length > 3
+        ) {
+            const newEntry = { ...form, id: uuidv4() };
+            const updatedArray = [...passwordArray, newEntry];
+            setpasswordArray(updatedArray);
+            localStorage.setItem("password", JSON.stringify(updatedArray));
+
             toast('Saved successfully', {
                 position: "top-right",
                 autoClose: 5000,
@@ -56,8 +62,7 @@ const Manager = () => {
                 progress: undefined,
                 theme: "dark"
             });
-        }
-        else {
+        } else {
             toast('Error: Invalid Inputs', {
                 position: "top-right",
                 autoClose: 5000,
@@ -67,12 +72,10 @@ const Manager = () => {
                 draggable: true,
                 progress: undefined,
                 theme: "dark"
-
             });
-
         }
-
     }
+
 
     const deletePassword = (id) => {
         setpasswordArray(passwordArray.filter(item => item.id !== id))
@@ -114,7 +117,7 @@ const Manager = () => {
     }
 
     const handleChange = (e) => {
-        setform({ ...form, [e.target.name]: [e.target.value] })
+        setform({ ...form, [e.target.name]: e.target.value  })
     }
 
 
