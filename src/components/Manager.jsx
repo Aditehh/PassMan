@@ -262,7 +262,7 @@ const Manager = () => {
                                                         </td>
                                                         <td className="px-8 py-3 text-gray-600 font-mono">
                                                             <div className='flex items-center'>
-                                                                <span> {item.password}</span>
+                                                                <span> {"*".repeat(item.password.length)}</span>
                                                                 <div onClick={() => { copyText(item.password); notify(); }}>
                                                                     <svg
                                                                         xmlns="http://www.w3.org/2000/svg"
