@@ -33,21 +33,23 @@ npm install
 ### 3. Run the app
 ```
 npm run dev
-Make sure you have Node.js and npm installed on your machine.
+<!-- Make sure you have Node.js and npm installed on your machine -->
 ```
 
 ### Tech Stack
+```
 React
 Tailwind CSS
 Vite
 Toastify for notifications
 UUID for unique ID generation
+```
 
-🔐 Disclaimer
+### Disclaimer
 All passwords are stored in your browser's localStorage. This project is for learning and personal use only and should not be used for storing real credentials in production environments.
 
-📄 License
+### License
 This project is open-source and available under the MIT License.
 
-🙌 Author
+### Author
 Made with 💙 by Aditya Aryal
